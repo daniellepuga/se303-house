@@ -32,13 +32,20 @@ class House
     if number == 1
       "#{sentence_start} #{suffix}"
     else
-      "#{sentence_start} #{verses[0..(number-2)].reverse.join(' ')} #{suffix}"
+    "#{sentence_start} #{verses.slice(0, number-1).reverse.join(' ')} #{suffix}"
     end
   end
 
     def recite
       (1..12).each.collect { |n| line(n) }.join("\n")
     end
+  end
+  
+class PirateHouse < House
+
+  def initialize(sentence_start = "Thar be")
+    @sentence_start = sentence_start
+  end
 end
 
 
