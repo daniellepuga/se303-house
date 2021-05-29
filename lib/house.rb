@@ -1,5 +1,14 @@
 class House
   
+  def initialize(sentence_start="This is")
+    @sentence_start = sentence_start
+  end
+
+  def phrases
+    @subjects = ["house", "malt", "rat", "cat", "dog", "cow with the crumpled horn", "maiden all forlorn", "priest all shaven and shorn", "rooster that crowed in the morn", "farmer sowing his corn", "horse and the hound and the horn"]
+    @verbs = ["Jack built", "lay in", "ate", "killed", "worried", "tossed", "milked", "kissed", "married", "woke", "kept", "belonged to"]
+  end
+
   def line(number)
     case number
       when 1
