@@ -1,11 +1,21 @@
 class House
   
-  def initialize(sentence_start="This is")
+  def initialize(sentence_start="This is the")
     @sentence_start = sentence_start
   end
 
-  def phrases
+  # FIXMEPLX
+  def build_verse(subject, verb)
+    # sentence_start + subject + that + verb
+  end
+
+  
+  # maybe a dictionary would be better?
+  def subjects
     @subjects = ["house", "malt", "rat", "cat", "dog", "cow with the crumpled horn", "maiden all forlorn", "priest all shaven and shorn", "rooster that crowed in the morn", "farmer sowing his corn", "horse and the hound and the horn"]
+  end
+
+  def verbs
     @verbs = ["Jack built", "lay in", "ate", "killed", "worried", "tossed", "milked", "kissed", "married", "woke", "kept", "belonged to"]
   end
 
@@ -40,8 +50,7 @@ class House
 
     def recite
       (1..12).each.collect { |n| line(n) }.join("\n")
-      
-  end
+    end
 end
 
 
