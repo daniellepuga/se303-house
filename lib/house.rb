@@ -29,33 +29,12 @@ class House
   end
 
   def line(number)
-    case number
-      when 1
-        "#{sentence_start} #{suffix}"
-      when 2
-        "#{sentence_start} #{verses[0]} #{suffix}"
-      when 3
-        "#{sentence_start} #{verses[1]} #{verses[0]} #{suffix}"
-      when 4
-        "#{sentence_start} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 5
-        "#{sentence_start} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 6
-        "#{sentence_start} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 7
-        "#{sentence_start} #{verses[5]} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 8
-        "#{sentence_start} #{verses[6]} #{verses[5]} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 9
-        "#{sentence_start} #{verses[7]} #{verses[6]} #{verses[5]} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 10
-        "#{sentence_start} #{verses[8]} #{verses[7]} #{verses[6]} #{verses[5]} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 11
-        "#{sentence_start} #{verses[9]} #{verses[8]} #{verses[7]} #{verses[6]} #{verses[5]} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      when 12
-        "#{sentence_start} #{verses[10]} #{verses[9]} #{verses[8]} #{verses[7]} #{verses[6]} #{verses[5]} #{verses[4]} #{verses[3]} #{verses[2]} #{verses[1]} #{verses[0]} #{suffix}"
-      end
+    if number == 1
+      "#{sentence_start} #{suffix}"
+    else
+      "#{sentence_start} #{verses[0..(number-2)].reverse.join(' ')} #{suffix}"
     end
+  end
 
     def recite
       (1..12).each.collect { |n| line(n) }.join("\n")
