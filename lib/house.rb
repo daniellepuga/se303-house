@@ -27,14 +27,6 @@ class House
     end
 
 end
-  
-class PirateHouse < House
-
-  def initialize(sentence_start = "Thar be")
-    @sentence_start = sentence_start
-  end
-
-end
 
 class RandomHouse < House
 
@@ -55,9 +47,9 @@ class RandomVerbsAndSubjects < House
   def verses
     @subjects = ["malt", "rat", "cat", "dog", "cow with the crumpled horn", "maiden all forlorn", "man all tattered and torn", "priest all shaven and shorn", "rooster that crowed in the morn", "farmer sowing his corn", "horse and the hound and the horn"]
     @verbs = ["lay in", "ate", "killed", "worried", "tossed", "milked", "kissed", "married", "woke", "kept", "belonged to"]
-    @subjects.shuffle(rand: Random.new(@rand_seed))
-    @verbs.shuffle(rand: Random.new(@rand_seed))
-    @verses = (0..10).collect {|i| "the #{@subjects[i]} that #{verbs[i]}" }
+    @subjects.shuffle!
+    @verbs.shuffle!
+    @verses = (0..10).map {|i| "the #{@subjects[i]} that #{@verbs[i]}" }
   end
   
 end
