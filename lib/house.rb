@@ -32,14 +32,15 @@ class House
     if number == 1
       "#{sentence_start} #{suffix}"
     else
-    "#{sentence_start} #{verses.slice(0, number-1).reverse.join(' ')} #{suffix}"
+      "#{sentence_start} #{verses.slice(0, number-1).reverse.join(' ')} #{suffix}"
     end
   end
 
     def recite
       (1..12).each.collect { |n| line(n) }.join("\n")
     end
-  end
+
+end
   
 class PirateHouse < House
 
@@ -48,4 +49,15 @@ class PirateHouse < House
   end
 end
 
+class RandomHouse < House
 
+  def initialize(sentence_start = "This is", rand_seed: Random.new())
+    sentence_start = @sentence_start
+    @rand_seed = rand_seed
+  end
+
+  def verses
+    @verses = @verses.shuffle(rand: Random.new(@rand_seed))
+  end
+
+end
