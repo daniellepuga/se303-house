@@ -57,7 +57,22 @@ class RandomHouse < House
   end
 
   def verses
+    @verses = ["the malt that lay in", "the rat that ate", "the cat that killed", "the dog that worried", "the cow with the crumpled horn that tossed", "the maiden all forlorn that milked", "the man all tattered and torn that kissed", "the priest all shaven and shorn that married", "the rooster that crowed in the morn that woke", "the farmer sowing his corn that kept", "the horse and the hound and the horn that belonged to"]
     @verses = @verses.shuffle(rand: Random.new(@rand_seed))
   end
 
 end
+
+class RandomVerbsAndSubjects < House
+  
+  def verses
+    @subjects = ["malt", "rat", "cat", "dog", "cow with the crumpled horn", "maiden all forlorn", "man all tattered and torn", "priest all shaven and shorn", "rooster that crowed in the morn", "farmer sowing his corn", "horse and the hound and the horn"]
+    @verbs = ["lay in", "ate", "killed", "worried", "tossed", "milked", "kissed", "married", "woke", "kept", "belonged to"]
+  end
+
+  def randomize
+    @subjects.shuffle(rand: Random.new(@rand_seed))
+    @verbs.shuffle(rand: Random.new(@rand_seed))
+  end
+
+# implement random subjects and verbs
